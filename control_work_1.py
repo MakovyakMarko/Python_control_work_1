@@ -57,96 +57,106 @@ def myfunc():
 # Робота з рядками
 # Чи є в рядку елемент (слово)?
 # Чи немає слова в рядку?
-def string_menager():
-    string = ()
+def string_manager():
+    string = ""
     try:
         while True:
-            print("What do you want to do with string?")
-            print("1.Create string")
-            print("2.Check string")
-            print("3.Check legth of string")
-            print("4.Capitalize string")
-            print("5.Upper string")
-            print("6.Lower string")
-            print("7.Count in string")
-            print("8.Search in string")
-            print("9.Find index of letter in string")
-            print("10.Break string to parts")
-            print("11.Replace in string")
-            print("12.Split string to list")
-            print("13.Print string")
-            print("14.Exit")
-            choise = input("Make your chiose (1-14): ")
-            if choise == "1":
-                print(string)
-                value = input("Do you want to add some data into string? (y/n): ")
-                if value == "y":
-                    data = input("Type data into string: ")
-                    string = str(data)
-                elif value == "n":
+            print("\nWhat do you want to do with the string?")
+            print("1. Create string")
+            print("2. Check string")
+            print("3. Check length of string")
+            print("4. Capitalize string")
+            print("5. Convert string to uppercase")
+            print("6. Convert string to lowercase")
+            print("7. Count occurrences in string")
+            print("8. Search in string")
+            print("9. Find index of letter in string")
+            print("10. Break string into parts")
+            print("11. Replace in string")
+            print("12. Split string into list")
+            print("13. Print string")
+            print("14. Exit")
+            
+            choice = input("Make your choice (1-14): ")
+            
+            if choice == "1":
+                value = input("Do you want to add data into the string? (y/n): ")
+                if value.lower() == "y":
+                    data = input("Type data into the string: ")
+                    string = data
+                elif value.lower() == "n":
                     continue
                 else:
-                    print("Invalid value.")
-            elif choise == "2":
-                check = input("What value you want to check in string?: ")
+                    print("Invalid input.")
+            
+            elif choice == "2":
+                check = input("What value do you want to check in the string?: ")
                 if check in string:
-                    print(f"{check} is in the string")
+                    print(f"'{check}' is in the string.")
                 else:
-                    print(f"{check} is not in the string")
-            elif choise == "3":
-                print("Length of the string is", len(string), "charecters.")
-            elif choise == "4":
+                    print(f"'{check}' is not in the string.")
+            
+            elif choice == "3":
+                print("Length of the string is", len(string), "characters.")
+            
+            elif choice == "4":
                 print(string.capitalize())
-            elif choise == "5":
+            
+            elif choice == "5":
                 print(string.upper())
-            elif choise == "6":
+            
+            elif choice == "6":
                 print(string.lower())
-            elif choise == "7":
-                count = input("What we will count?: ")
-                if count in string:
-                    print("There is ",string.count(count), "characters")
-                else:
-                    print("There is no such value in string")
-            elif choise == "8":
-                search = input("What we will search?: ")
+            
+            elif choice == "7":
+                count = input("What do you want to count?: ")
+                print(f"'{count}' occurs {string.count(count)} times in the string.")
+            
+            elif choice == "8":
+                search = input("What do you want to search for?: ")
                 if search in string:
-                    print(string.find(search))
+                    print(f"Found at index: {string.find(search)}")
                 else:
-                    print("There is no such value in string")
-            elif choise == "9":
-                index = input("Type letter wich index you want to know: ")
+                    print(f"'{search}' is not in the string.")
+            
+            elif choice == "9":
+                index = input("Enter the letter whose index you want to know: ")
                 if index in string:
-                    print(string.index(index))
+                    print(f"Index of '{index}': {string.index(index)}")
                 else:
-                    print("There is no such letters in string")
-            elif choise == "10":
-                break_word = input("Type the word to break around it: ")
-                if break_word in string:
-                    print(string.partition(break_word))
-                else:
-                    print("There is no such word in string")
-            elif choise == "11":
-                str_word = input("Type word in string wich you want to replace: ")
+                    print(f"'{index}' is not in the string.")
+            
+            elif choice == "10":
+                break_word = input("Enter the word to partition around: ")
+                print(string.partition(break_word))
+            
+            elif choice == "11":
+                str_word = input("Enter the word in the string to replace: ")
                 if str_word in string:
-                    repl_word = input("Type new word to replace: ")
-                    print(string.replace(str_word, repl_word))
+                    repl_word = input("Enter the new word to replace it with: ")
+                    string = string.replace(str_word, repl_word)
+                    print("Updated string:", string)
                 else:
-                    print("There is no such word in string")
-            elif choise == "12":
-                string.split()
-                print(string)
-            elif choise == "13":
-                print(string)
-            elif choise == "14":
+                    print(f"'{str_word}' is not in the string.")
+            
+            elif choice == "12":
+                string_list = string.split()
+                print("Split string:", string_list)
+            
+            elif choice == "13":
+                print("Current string:", string)
+            
+            elif choice == "14":
                 print("Exiting program.")
                 break
+            
             else:
-                print("Invalid value.")
-        return string
-    except KeyError:
-        print("Invalid input.")
+                print("Invalid choice. Please try again.")
+    except Exception as e:
+        print("An error occurred:", e)
 
-string_menager()
+# Run the function
+string_manager()
 # виберіть що ви хочете зробити:
 # додати до спику - append()
 # видалити зі списку - pop()
